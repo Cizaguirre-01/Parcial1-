@@ -1,0 +1,148 @@
+Algoritmo ExperienciadeAprenziaje4
+	
+	Definir Promedio1, Promedio2, Promedio3 Como Real
+	definir alumno1 como caracter
+	Definir calificacion1parical_1,  calificacion2parical_1, calificacion3parical_1 Como entero
+	Definir alumno2 Como caracter
+	Definir calificacion1parcial_2,  calificacion2parcial_2, calificacion3parcial_2 Como entero
+	definir alumno3 Como caracter
+	Definir calificacion1parcial_3,  calificacion2parcial_3, calificacion3parcial_3 Como entero
+	Definir datos_capturas Como Logico
+	Definir opcion Como Entero
+	datos_capturados <- Falsos
+	
+	Repetir 
+		
+		Escribir " bienvenido al men� de clasificaciones elige una opcion"
+		Escribir "[1] capturar datos "
+		Escribir "[2] Mostrar los promedios"
+		Escribir "[3] Mostrar el mejor promedio"
+		Escribir "[4] salir" 
+		Leer opcion
+		
+		Segun opcion Hacer
+			1:
+				Escribir " Alumno 1, escriba su nombre"
+				Escribir "tu nombre"
+				Leer nombre1
+				Escribir " calificacion de  alumno1"
+				Leer calificacion1parcial_1
+				Leer calificacion2parcial_1
+				Leer calificacion3parcial_1
+				
+				
+				
+				Escribir "Alumno 2 , escriba su nombre"
+				Leer nombre2
+				Escribir " calificacion de  alumno2"
+				Leer calificacion1parcial_2
+				Leer calificacion2parcial_2
+				Leer calificacion3parcial_2
+				
+				
+				Escribir "Alumno 3 , escriba su nombre"
+				Leer nombre3
+				Escribir " calificacion de  alumno3"
+				Leer calificacion1parcial_3
+				Leer calificacion2parcial_3
+				Leer calificacion3parcial_3
+				
+				datos_capturados <- Verdadero
+				
+				
+				
+			2:
+				Si  datos_capturados= Falso Entonces
+					Escribir " captura bien los datos"
+					
+				SiNo
+					Promedio1 <- promedioTS (calificacion1parcial_1,calificacion2parcial_1,calificacion3parcial_1)
+					Promedio2 <- promedioTS (calificacion1parcial_2,calificacion2parcial_2,calificacion3parcial_2)
+					Promedio3 <- promedioTS (calificacion1parcial_3,calificacion2parcial_3,calificacion3parcial_3)
+					
+					Escribir "Promedio1 del alumno1 es;", nombre1 " de " , Promedio1
+					Escribir "Promedio2 del alumno2 es;", nombre2 " de " , Promedio2
+					Escribir "Promedio3 del alumno3 es;", nombre3 " de " , Promedio3
+					
+				Fin Si
+			3:
+				Si  datos_capturados = Falso Entonces
+					escribir " datos insuficientes"
+				SiNo
+					Promedio1 <- promedioTS (calificacion1parcial_1,calificacion2parcial_1,calificacion3parcial_1)
+					Promedio2 <- promedioTS (calificacion1parcial_2,calificacion2parcial_2,calificacion3parcial_2)
+					Promedio3 <- promedioTS (calificacion1parcial_3,calificacion2parcial_3,calificacion3parcial_3)
+					
+					Si promedio1= promedio2 y promedio1= promedio3 Entonces
+						Escribir " No hay mejor promedio por que todos son iguales;", promedio1 " es de ", nombre1 " , " nombre2 " y ",  nombre3 
+					SiNo
+						Si Promedio1 > promedio2 y Promedio1  > Promedio3 Entonces
+							Escribir "el mayor promedio es; ",Promedio1 " de ", nombre1
+						SiNo 
+							
+							si promedio2  > promedio1 y promedio2 > promedio3 Entonces
+								
+								Escribir "el mayor promedio es; ", promedio2 " de ", nombre2
+								
+							SiNo 
+								Si  promedio3 > promedio1 y promedio3 > promedio2 Entonces
+									Escribir " el mayor promedio es;" promedio3, nombre3
+								SiNo
+									Si promedio1= promedio2  Entonces
+										Escribir " ambos mejores promedios son iguales;", promedio1 " de " nombre1 " y "  nombre2 
+									SiNo
+										Si promedio3=promedio2 entonces 
+											Escribir " ambos mejores promedios iguales;", promedio2 " de ", nombre2 " y " nombre3 
+										SiNo
+											Si proemdio1= promedio3 Entonces
+												Escribir " ambos mejores promedios son iguales ", proemdio1 " de ", nombre1 " y " nombre3
+											SiNo
+												Escribir " falta de datos "
+											Fin Si
+											
+										Fin Si
+										
+										
+									Fin Si
+									
+								Fin Si
+							Fin Si
+							
+						Fin Si
+						
+					Fin Si
+				Fin Si
+			4:
+				Escribir "saliendo"
+			De Otro Modo:
+				Escribir " opcion no valida"
+				
+				
+				
+				
+				
+		Fin Segun
+		
+	Hasta Que opcion=4
+	
+	
+	
+	
+	
+	
+FinAlgoritmo
+
+
+SubProceso resultado <- promedioTS (cali1,cali2,cali3)
+	definir resultado Como Real
+	resultado <- (cali1+cali2+cali3)/3
+	
+FinSubProceso
+
+
+// Conclusion: Si fueran 30 alumnos el codigo o sistema colapsaia, serian demasiados codigos, muy saturado, muchos errores, y reajustar todos los codigos, 
+//promedios, o incluso  para sacar la calificacion mas alta seria muy tardo y estresante. 
+//Siento que hay otras maneras mas eficientes y facil, sin que tengan muchos codigos o incluso que tenga la capacidad de muchos mas alumnos.
+
+
+
